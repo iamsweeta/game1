@@ -1,0 +1,1197 @@
+@font-face {
+    font-family: 'kudry_weird-headline';
+    src: url('../fonts/TransformaScript_Trial-Medium.woff2') format('woff2'),
+         url('../fonts/TransformaScript_Trial-Medium.woff') format('woff'),
+         url('../fonts/ClickClack Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kudry Weird Headline', 'Kudry Weird Headline (OpenType)', 'kudry_weird-headline', cursive, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffc2d1 0%, #ffafcc 100%);
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.page {
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffd6e0;
+    border-radius: 40px;
+    box-shadow: 
+        20px 20px 60px rgba(255, 105, 163, 0.3),
+        -20px -20px 60px rgba(255, 105, 163, 0.3),
+        inset 0 0 0 rgba(255, 255, 255, 0),
+        inset 0 0 0 rgba(255, 105, 180, 0);
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    padding: 40px;
+    background: #ffd6e0;
+    border-radius: 30px;
+}
+
+h1 {
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 5.8em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 
+        3px 3px 6px rgba(255, 105, 180, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+h3 {
+    color: #ff3385;
+    font-size: 42px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 
+        2px 2px 4px rgba(255, 105, 180, 0.3),
+        -2px -2px 4px rgba(255, 255, 255, 0.7);
+    padding-bottom: 0px;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 32px;
+    background: #ffd6e0;
+    color: #ff3385;
+    font-weight: 500;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.2),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #ff91c1;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 
+        inset 10px 10px 20px rgba(255, 105, 180, 0.25),
+        inset -10px -10px 20px rgba(255, 255, 255, 0.8);
+    transform: scale(1.02);
+}
+
+.doll-selection, .level-selection {
+    margin: 30px 0;
+}
+
+.dolls {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.doll-option {
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    width: 150px;
+    background: #ffd6e0;
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.2),
+        -15px -15px 30px rgba(255, 255, 255, 0.7);
+}
+
+.doll-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        20px 20px 40px rgba(255, 105, 180, 0.25),
+        -20px -20px 40px rgba(255, 255, 255, 0.8);
+}
+
+.doll-option.active {
+    background: #ffd6e0;
+    box-shadow: 
+        inset 10px 10px 20px rgba(255, 105, 180, 0.25),
+        inset -10px -10px 20px rgba(255, 255, 255, 0.7);
+    transform: scale(0.98);
+}
+
+.doll-preview {
+    width: 120px;
+    height: 180px;
+    background: #ffd6e0;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 
+        inset 5px 5px 10px rgba(255, 105, 180, 0.2),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+#current-player{
+    font-size: 32px;
+    font-weight: 400;
+    padding: 5px;
+    margin-right: 8px;
+}
+.doll-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.level-selector {
+    display: flex;
+    margin-top: 25px;
+    gap: 20px;
+}
+
+.level-select-btn {
+    flex: 1;
+    padding: 22px;
+    background: #ffd6e0;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ff3385;
+    box-shadow: 
+        12px 12px 24px rgba(255, 105, 180, 0.2),
+        -12px -12px 24px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.level-select-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.25),
+        -15px -15px 30px rgba(255, 255, 255, 0.8);
+}
+
+.level-select-btn.active {
+    background: #ffd6e0;
+    color: #ff1493;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.25),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transform: scale(0.98);
+}
+
+.level-select-btn.active:hover{
+        transform: none !important;
+ background: #ffd6e0;
+    color: #ff1493;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.25),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transform: scale(0.98);
+}
+
+.level-select-btn:disabled {
+    background: #ffc2d1;
+    color: #ff91c1;
+    cursor: not-allowed;
+    box-shadow: 
+        inset 5px 5px 10px rgba(255, 105, 180, 0.15),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 32px;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.4),
+        -10px -10px 20px rgba(255, 255, 255, 0.7),
+        0 10px 20px rgba(255, 211, 235, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        20px 20px 40px rgba(255, 105, 180, 0.5),
+        -15px -15px 30px rgba(255, 255, 255, 0.8),
+        0 15px 30px rgba(255, 20, 147, 0.4);
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+        8px 8px 20px rgba(255, 105, 180, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.6),
+        0 5px 15px rgba(255, 20, 147, 0.2);
+}
+
+.btn.secondary {
+    background: linear-gradient(135deg, #ff91c1 0%, #ff69b4 100%);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 25px;
+}
+
+/* Игровая страница */
+.game-header {
+    background:#ff69b4;
+    color: white;
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 35px 35px 0 0;
+    box-shadow: 
+        0 15px 30px rgba(255, 20, 147, 0.3),
+        inset 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat {
+    font-size: 25px;
+    width: 150px;
+    height: 90px;
+    font-weight: 300;
+    padding: 12px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: #ff8cc6;
+        box-shadow: 
+        0px 10px 20px rgba(212, 29, 121, 0.4),
+        -0px -10px 20px rgba(255, 255, 255, 0);
+}
+
+.game-container {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+    min-height: 600px;
+    background: #ffd6e0;
+    border-radius: 0 0 35px 35px;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    position: relative;
+}
+
+.task-container {
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 80px;
+    max-height: 100px;
+    border-radius: 30px;
+    border: none;
+    top: 300px;
+}
+
+#task-text {
+    font-size: 15px;
+    color: #ff4e95;
+    font-weight: 300;
+    text-shadow: 
+        2px 2px 4px rgba(255, 105, 180, 0.2),
+        -2px -2px 4px rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.doll-container {
+    text-align: center;
+    
+}
+
+.doll {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background: #ffd6e0;
+    border: none;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.doll-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.doll-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Одежда на кукле */
+.clothing-on-doll {
+    position: absolute;
+            overflow: visible !important;
+
+    z-index: 10;
+    cursor: move;
+    filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.1));
+}
+
+.clothing-on-doll img {
+}
+
+/* Контейнер гардероба */
+#clothes-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 30px;
+    background: #ffdde8;
+        box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.2),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+}
+
+/* Одежда в гардеробе */
+.clothing-item {
+    position: absolute !important;
+    cursor: grab;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    border: none;
+
+    overflow: hidden;
+}
+
+.clothing-item:active {
+    cursor: grabbing;
+}
+
+.clothing-item:hover:not([style*="opacity: 0.3"]) {
+  
+}
+
+.clothing-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    overflow: visible !important;
+}
+
+.clothing-img img {
+        overflow: visible !important;
+
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.clothing-name {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ff3385;
+    text-shadow: 
+        1px 1px 2px rgba(255, 105, 180, 0.2),
+        -1px -1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Рейтинг */
+.scores-container {
+    margin: 30px 0;
+    overflow-x: auto;
+    background: #ffd6e0;
+    border-radius: 30px;
+    border: none;
+    padding: 25px;
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.2),
+        -15px -15px 30px rgba(255, 255, 255, 0.7);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 3px solid rgba(255, 105, 180, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+th {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: white;
+    font-weight: 600;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px 15px 0 0;
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    color: #ff3385;
+    font-weight: 500;
+    border-radius: 0 0 15px 15px;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    box-shadow: 
+        5px 5px 15px rgba(255, 105, 180, 0.1),
+        -5px -5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Обувь должна быть ниже одежды */
+.clothing-boots {
+    width: 70px !important;
+    bottom: -7px !important;
+    left: 147px !important;
+    z-index: 5 !important;
+}
+
+.clothing-dress {
+    width: 200px !important;
+    height: auto !important;
+    top: 85px !important;
+    left: 142px !important;
+    z-index: 15 !important;
+}
+
+.clothing-pinkdress {
+    width: 200px !important;
+    height: auto !important;
+    top: 102px !important;
+    left: 118px !important;
+    z-index: 1000 !important;
+    overflow: visible !important;
+
+}
+
+.clothing-reddress {
+    width: 70px !important;
+    height: auto !important;
+    top: 100px !important;
+    left: 123px !important;
+    z-index: 15 !important;
+}
+
+.clothing-coat {
+    width: 200px !important;
+    height: auto !important;
+    top: 75px !important;
+    left: 144px !important;
+    z-index: 15 !important;
+}
+
+.clothing-redcoat {
+    width: 200px !important;
+    height: auto !important;
+    top: 68px !important;
+    left: 147px !important;
+    z-index: 15 !important;
+}
+
+.clothing-whitecoat {
+    width: 200px !important;
+    height: auto !important;
+    top: 68px !important;
+    left: 147px !important;
+    z-index: 15 !important;
+}
+
+.clothing-sandals {
+    width: 520px !important;
+    height: auto;
+    bottom: -7px !important;
+    left: 147px !important;
+    z-index: 5 !important;
+}
+
+.clothing-redboots {
+    width: 520px !important;
+    height: auto;
+    bottom: 0px !important;
+    left: 146px !important;
+    z-index: 5 !important;
+}
+
+.clothing-goldboots {
+    width: 520px !important;
+    height: auto;
+    bottom: 0px !important;
+    left: 147px !important;
+    z-index: 5 !important;
+}
+
+/* Одежда в гардеробе - выше */
+.clothing-item[data-category="clothing"] {
+    z-index: 15 !important;
+}
+
+/* Обувь в гардеробе - ниже */
+.clothing-item[data-category="footwear"] {
+    z-index: 5 !important;
+}
+
+/* Добавляем окно предупреждения */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: (255, 105, 180, 0.3)!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(7px);
+}
+
+.alert-box {
+    background: #ffd6e0;
+    padding: 50px;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 
+        25px 25px 50px rgba(255, 105, 180, 0.3),
+        -25px -25px 50px rgba rgba(255, 105, 180, 0.3),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.6),
+        inset -5px -5px 10px rgba(255, 105, 180, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.alert-title {
+    color: #ff1493;
+    font-size: 52px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    text-shadow: 
+        3px 3px 6px rgba(255, 105, 180, 0.2),
+        -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+.alert-message {
+    font-size: 32px;
+    margin-bottom: 35px;
+    color: #ff3385;
+    line-height: 1.6;
+}
+
+.alert-btn {
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 
+        10px 10px 20px rgba(255, 105, 180, 0.2),
+        -8px -8px 15px rgba(255, 105, 180, 0.2),
+        0 8px 15px rgba(255, 20, 147, 0.2);
+    transition: all 0.3s ease;
+}
+
+.alert-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.2),
+        -12px -12px 25px rgba(255, 105, 180, 0.2),
+        0 12px 25px rgba(255, 20, 147, 0.2);
+}
+
+.alert-btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+        8px 8px 20px rgba(255, 105, 180, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.6),
+        0 5px 15px rgba(255, 20, 147, 0.2);
+}
+
+/* Сапоги в гардеробе */
+.clothing-item.clothing-boots {
+    width: 80px !important;
+    height: auto !important;
+    top: 300px !important;
+    left: 210px !important;
+    z-index: 5 !important;
+}
+
+/* Сандали в гардеробе */
+.clothing-item.clothing-sandals {
+    width: 70px !important;
+    height: auto !important;
+    top: 280px !important;
+    left: 110px !important;
+    z-index: 5 !important;
+}
+
+.clothing-item.clothing-redboots {
+    width: 70px !important;
+    height: auto !important;
+    top: 240px !important;
+    left: 28px !important;
+    z-index: 115 !important;
+}
+
+.clothing-item.clothing-goldboots {
+    width: 50px !important;
+    height: auto !important;
+    top: 310px !important;
+    left: 390px !important;
+    z-index: 5 !important;
+}
+
+/* Платье в гардеробе */
+.clothing-item.clothing-dress {
+    width: 180px !important;
+    height: auto !important;
+    top: 50px !important;
+    left: 45px !important;
+    z-index: 15 !important;
+}
+.clothing-item.clothing-pinkdress {
+    width: 220px !important;
+    height: auto !important;
+    top: 50px !important;
+    left: 360px !important;
+    z-index: 15 !important;
+}
+
+.clothing-item.clothing-reddress {
+    width: 100px !important;
+    height: auto !important;
+    top: 63px !important;
+    left: 15px !important;
+    z-index: 16 !important;
+}
+
+/* Шуба в гардеробе */
+.clothing-item.clothing-coat {
+    width: 180px !important;
+    height: auto !important;
+    top: 50px !important;
+    left: 150px !important;
+    z-index: 15 !important;
+}
+/* Шуба в гардеробе */
+.clothing-item.clothing-redcoat {
+    width: 140px !important;
+    height: auto !important;
+    top: 50px !important;
+    left: 250px !important;
+    z-index: 15 !important;
+}
+
+.clothing-item.clothing-whitecoat {
+    width: 140px !important;
+    height: auto !important;
+    top: 50px !important;
+    left: 340px !important;
+    z-index: 15 !important;
+}
+
+/* Анимация пульсации для таймера */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Модальное окно завершения уровня */
+.level-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 192, 203, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(0.5px);
+}
+
+.level-modal-box {
+    padding: 50px;
+    border-radius: 40px;
+    border: none;
+    background: #ffe5eb;
+        box-shadow: 
+        0px 10px 20px rgba(212, 29, 121, 0.4),
+        -0px -10px 20px rgba(255, 255, 255, 0);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    animation: modalAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+.level-modal-stats{
+    background: #ffd6e0;
+    
+}
+
+.level-modal-btn {
+    padding: 18px 30px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: 300;
+    box-shadow: 
+        10px 10px 20px rgba(255, 105, 180, 0.4),
+        -8px -8px 15px rgba(255, 255, 255, 0.7),
+        0 8px 15px rgba(255, 20, 147, 0.3);
+    transition: all 0.3s ease;
+}
+
+.level-modal-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.5),
+        -12px -12px 25px rgba(255, 255, 255, 0.8),
+        0 12px 25px rgba(255, 20, 147, 0.4);
+}
+
+.level-modal-btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+        8px 8px 20px rgba(255, 105, 180, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.6),
+        0 5px 15px rgba(255, 20, 147, 0.2);
+}
+
+
+/* Страница регистрации */
+#registration-page .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+#registration-page .h1{
+    font-size: 20px;
+}
+
+/* Улучшенные стили для гардероба */
+.wardrobe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff91c1;
+}
+
+.wardrobe-instruction {
+    color: #ff3385;
+    font-size: 32px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+    }
+    
+    .dolls, .level-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .doll-option {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .doll {
+        width: 280px;
+        height: 380px;
+    }
+    
+    #clothes-container {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .clothing-item.clothing-boots {
+        top: 220px !important;
+        left: 180px !important;
+    }
+    
+    .clothing-item.clothing-sandals {
+        top: 130px !important;
+        left: 130px !important;
+    }
+    .clothing-item.clothing-redboots {
+        top: 130px !important;
+        left: 130px !important;
+    }
+    .clothing-item.clothing-goldboots {
+        top: 130px !important;
+        left: 130px !important;
+    }
+    
+    .clothing-item.clothing-dress {
+        top: 40px !important;
+        left: 40px !important;
+    }
+
+    .clothing-item.clothing-pinkdress {
+        top: 40px !important;
+        left: 40px !important;
+    }
+
+     .clothing-item.clothing-reddress {
+        top: 40px !important;
+        left: 40px !important;
+    }
+    
+    .clothing-item.clothing-coat {
+        top: 40px !important;
+        left: 130px !important;
+    }
+
+     .clothing-item.clothing-whitecoat {
+        top: 40px !important;
+        left: 130px !important;
+    }
+    
+  .clothing-item.clothing-redcoat {
+        top: 40px !important;
+        left: 130px !important;
+    }
+    
+    .clothing-boots {
+        left: 105px !important;
+    }
+    
+    .clothing-dress {
+        left: 105px !important;
+    }
+
+    .clothing-reddress {
+        left: 105px !important;
+    }
+    
+    .clothing-coat {
+        left: 105px !important;
+    }
+     .clothing-redcoat {
+        left: 105px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    #start-page{
+        display: flex;
+          align-items: center;
+    justify-content: center;
+    }
+    
+    #player-name{
+        font-size: 1rem;
+    }
+    .container {
+        padding: 25px;
+        width: 300px;
+          align-items: center;
+    justify-content: center;
+
+    }
+    .doll-option{
+        max-width: 180px;
+        max-height: ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    button{
+        font-size: 1.8rem!important;
+
+    }
+    .btn{
+        font-size: 1.8rem!important;
+    }
+    h3{
+        font-size: 1.8rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    .game-container {
+        padding: 20px;
+    }
+    
+    .doll {
+        width: 240px;
+        height: 320px;
+    }
+    
+    #clothes-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .clothing-item.clothing-boots {
+        top: 190px !important;
+        left: 150px !important;
+        width: 60px !important;
+    }
+    
+    .clothing-item.clothing-sandals {
+        top: 110px !important;
+        left: 110px !important;
+    }
+    .clothing-item.clothing-redboots {
+        top: 110px !important;
+        left: 110px !important;
+    }
+
+       .clothing-item.clothing-goldboots {
+        top: 110px !important;
+        left: 110px !important;
+    }
+    
+    .clothing-item.clothing-dress {
+        top: 30px !important;
+        left: 30px !important;
+        width: 150px !important;
+    }
+    .clothing-item.clothing-pinkdress {
+        top: 30px !important;
+        left: 30px !important;
+        width: 150px !important;
+    }
+    
+    .clothing-item.clothing-coat {
+        top: 30px !important;
+        left: 110px !important;
+        width: 150px !important;
+    }
+    .clothing-item.clothing-redcoat {
+        top: 30px !important;
+        left: 110px !important;
+        width: 150px !important;
+    }
+    
+    .clothing-name {
+        font-size: 12px;
+        bottom: 10px;
+    }
+    
+    .clothing-boots {
+        width: 60px !important;
+        left: 90px !important;
+    }
+    
+    .clothing-dress {
+        width: 150px !important;
+        left: 90px !important;
+    }
+    
+    .clothing-reddress {
+        width: 150px !important;
+        left: 90px !important;
+    }
+
+    .clothing-coat {
+        width: 170px !important;
+        left: 90px !important;
+    }
+    .clothing-redcoat {
+        width: 170px !important;
+        left: 90px !important;
+    }
+}
+
+/* Контейнер с одеждой */
+.clothes-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #ffd6e0;
+    border-radius: 30px;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.2),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    overflow: visible !important;
+}
+
+/* Переопределение для пользовательской одежды */
+.clothing-item[data-type^="custom_"] {
+    border: 2px dashed #ff69b4 !important;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.clothing-on-doll[data-type^="custom_"] {
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+}
+.clothing-on-doll[class*=" clothing-custom"]{
+  top: 80px !important;
+
+}
+
+/* Контейнер для эффектов */
+#effects-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.difficulty-selection {
+    margin: 30px 0;
+}
+
+.difficulty-selector {
+    display: flex;
+    margin-top: 25px;
+    gap: 20px;
+}
+
+.difficulty-select-btn {
+    flex: 1;
+    padding: 22px;
+    background: #ffd6e0;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ff3385;
+    box-shadow: 
+        12px 12px 24px rgba(255, 105, 180, 0.2),
+        -12px -12px 24px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.difficulty-select-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 
+        15px 15px 30px rgba(255, 105, 180, 0.25),
+        -15px -15px 30px rgba(255, 255, 255, 0.8);
+}
+
+.difficulty-select-btn.active {
+    background: #ffd6e0;
+    color: #ff1493;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.25),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transform: scale(0.98);
+}
+
+.difficulty-select-btn.active:hover {
+    transform: none !important;
+    background: #ffd6e0;
+    color: #ff1493;
+    box-shadow: 
+        inset 8px 8px 16px rgba(255, 105, 180, 0.25),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transform: scale(0.98);
+}
+
+.difficulty-select-btn:disabled {
+    background: #ffc2d1;
+    color: #ff91c1;
+    cursor: not-allowed;
+    box-shadow: 
+        inset 5px 5px 10px rgba(255, 105, 180, 0.15),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+}

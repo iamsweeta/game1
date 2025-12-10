@@ -1,0 +1,441 @@
+/* Стили для рисования на кукле */
+.draw-btn {
+    padding: 15px 30px;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    background: #ff3b9d;
+    box-shadow: 
+        0px 10px 20px rgba(212, 29, 121, 0.6),
+        -0px -10px 20px rgba(255, 255, 255, 0);
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+#drawing-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 108, 116, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+#select-draw{
+    background: #ffe6ee;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(135, 66, 100, 0.4);
+    max-width: 500px;
+    width: 90%;
+}
+
+#drawing-winter-btn{
+    padding: 15px 35px;
+    background: #eaf7ff;
+    color: rgb(11, 56, 78);
+    border-radius: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 180px;
+    transition: all 0.3s;
+    border-color: transparent!important;
+    box-shadow:0px 0px 20px rgba(165, 105, 136, 0.3)!important;
+}
+
+#drawing-summer-btn{
+    padding: 15px 35px;
+    background: #f9ffed;
+    color: rgb(75, 90, 56);
+    border-radius: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 180px;
+    transition: all 0.3s;
+    border-color: transparent!important;
+    box-shadow:0px 0px 20px rgba(165, 105, 136, 0.3)!important;
+}
+
+.draw-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0px 10px 20px rgba(212, 29, 121, 0.7),
+        -0px -10px 20px rgba(255, 255, 255, 0);
+}
+
+.drawing-canvas {
+    position: absolute;
+    left: -200px;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    z-index: 20;
+    background: transparent !important;
+    touch-action: none;
+}
+
+/* Модальное окно выбора сезона */
+.season-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 192, 203, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+.season-btn {
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+.season-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.season-btn.active {
+    transform: scale(0.9);
+    filter: brightness(0.96);
+}
+
+#cancel-season-btn {
+    padding: 10px 20px;
+    background: #ff91c1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+
+    
+}
+
+#drawing-canvas{
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    transform: translateX(-50%);
+    width: 200px;
+    background: transparent;
+    height: 295px;
+    border: 4px dashed #ff69b4;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,105,180,0.3);
+    z-index: 9998;
+    display: none;
+    cursor: crosshair;
+}
+
+#drawing-start-btn{
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 400;
+    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+    transition: all 0.3s;
+}
+
+#drawing-cancel-btn{
+    padding: 10px 20px !important;
+    background: #cccccc;
+    color: rgba(108, 108, 95, 1);
+    border: none;
+    border-radius: 12px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+
+#drawing-tools{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 230, 238, 0.98);
+    padding: 20px 25px;
+    border-radius: 20px;
+    display: none;
+    gap: 20px;
+    align-items: center;
+    z-index: 10001;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+    backdrop-filter: blur(10px);
+    border: 3px solid #ff69b4;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 95%;
+    min-width: 300px;
+}
+
+#drawing-color-picker{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#drawing-eraser-btn{
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#save-drawing-btn{
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 200 !important;
+    font-size: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#clear-drawing-btn{
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff5252 0%, #ff0000 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 200 !important;
+    font-size: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#cancel-drawing-btn{
+    padding: 12px 20px !important;
+    background: #999999;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 200 !important;
+    font-size: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+/* Панель инструментов рисования */
+#drawing-tools {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 214, 224, 0.95);
+    padding: 15px;
+    border-radius: 20px;
+    display: none;
+    gap: 15px;
+    align-items: center;
+    z-index: 10001;
+    box-shadow: 0 4px 15px rgba(164, 99, 99, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,105,180,0) !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+}
+
+#drawing-color-picker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    padding: 0;
+}
+
+#drawing-brush-size {
+    width: 100px;
+    cursor: pointer;
+}
+
+#drawing-brush-value {
+    min-width: 40px;
+    text-align: center;
+    color: #ff3385;
+    font-weight: bold;
+}
+
+#drawing-eraser-btn,
+#save-drawing-btn,
+#clear-drawing-btn,
+#cancel-drawing-btn-tools {
+    padding: 8px 15px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#drawing-eraser-btn {
+    background: #ff4757;
+}
+
+#drawing-eraser-btn:hover {
+    background: #ff3342;
+}
+
+#save-drawing-btn {
+    background: #81C784;
+}
+
+#save-drawing-btn:hover {
+    background: #4CAF50;
+}
+
+#clear-drawing-btn {
+    background: #ff5252;
+}
+
+#clear-drawing-btn:hover {
+    background: #ff3333;
+}
+
+#cancel-drawing-btn-tools {
+    background: #ff91c1;
+}
+
+#cancel-drawing-btn-tools:hover {
+    background: #ff69b4;
+}
+
+/* Подсказка рисования */
+#drawing-hint {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #ff3385;
+    font-weight: bold;
+    z-index: 10002;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255,105,180,0.2);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Анимация звёзд */
+@keyframes starFloat {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* Модальное окно предупреждения */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 121, 128, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+}
+
+/* Адаптивность для рисования */
+@media (max-width: 768px) {
+    #drawing-tools {
+        bottom: 10px;
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .draw-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    
+    #drawing-hint {
+        font-size: 14px;
+        padding: 8px 15px;
+        top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    #drawing-tools {
+        flex-direction: column;
+        width: 95%;
+        bottom: 5px;
+    }
+    
+    .draw-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .season-btn {
+        min-width: 120px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .alert-box {
+        padding: 30px;
+    }
+    
+    .alert-title {
+        font-size: 24px;
+    }
+    
+    .alert-message {
+        font-size: 16px;
+    }
+    
+    .alert-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+}
+

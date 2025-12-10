@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переодевалка</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/drawing.css">
+</head>
+<body>
+    <!-- Страница 1: Старт -->
+    <div id="start-page" class="page active">
+        <div class="container">
+            <h1>переодевалка</h1>
+            
+            <div class="input-group">
+                <input type="text" id="player-name" placeholder="введите ник (от двух символов)" required minlength="2" maxlength="16">
+            </div>
+            
+            <div class="doll-selection">
+                <h3>выберите куклу:</h3>
+                <div class="dolls">
+                    <div class="doll-option active" data-doll="1">
+                        <div class="doll-preview">
+                            <img src="images/doll1.png" alt="Кукла 1" class="doll-img">
+                        </div>
+                    </div>
+                    <div class="doll-option" data-doll="2">
+                        <div class="doll-preview">
+                            <img src="images/doll2.png" alt="Кукла 2" class="doll-img">
+                        </div>
+                    </div>
+                    <div class="doll-option" data-doll="3">
+                        <div class="doll-preview">
+                            <img src="images/doll3.png" alt="Кукла 3" class="doll-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="level-selection">
+                <h3>выберите уровень:</h3>
+                <div class="level-selector">
+                    <button class="level-select-btn active" data-level="1">уровень 1</button>
+                    <button class="level-select-btn" data-level="2">уровень 2</button>
+                    <button class="level-select-btn" data-level="3">уровень 3</button>
+                </div>
+            </div>
+            
+            <div class="difficulty-selection">
+                <h3>выберите сложность:</h3>
+                <div class="difficulty-selector">
+                    <button class="difficulty-select-btn active" data-difficulty="easy">легкий</button>
+                    <button class="difficulty-select-btn" data-difficulty="medium">средний</button>
+                    <button class="difficulty-select-btn" data-difficulty="hard">сложный</button>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="start-game-btn" class="btn">начать игру</button>
+                <button id="view-scores-btn" class="btn secondary">рейтинг</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Страница 2: Игра -->
+    <div id="game-page" class="page">
+            <div class="game-header">
+        <div class="player-info">
+            <span id="current-player">Гость</span>
+        </div>
+        <div class="game-stats">
+            <div class="stat">уровень: <span id="current-level">1</span></div>
+            <div class="stat">время: <span id="timer">02:00</span></div>
+            <div class="stat">баллы: <span id="score">0</span></div>
+        </div>
+        <button id="draw-on-doll-btn" class="draw-btn">🎨 рисовать одежду</button>
+    </div>
+        
+        <div class="game-container">
+            <div class="left-panel">
+                <div class="task-container">
+                    <h3>задание</h3>
+                    <div id="task-text">Наденьте летнюю обувь</div>
+                </div>
+                
+                <div id="dolly" class="doll-container">
+                    <div class="doll" id="doll">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="wardrobe-header">
+                    <h3><pre>         ✨гардероб✨</pre></h3>
+
+                </div>
+                
+                <div id="clothes-container" class="clothes-container">
+                </div>
+                
+                <div class="game-controls">
+                    <button id="check-btn" class="btn">проверить</button>
+                    <button id="quit-btn" class="btn secondary">выйти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Страница 3: Рейтинг -->
+    <div id="scores-page" class="page">
+        <div class="container">
+            <h1>Рейтинг игроков</h1>
+            
+            <div class="scores-container">
+                <table id="scores-table">
+                    <thead>
+                        <tr>
+                            <th>место</th>
+                            <th>имя</th>
+                            <th>баллы</th>
+                            <th>уровень</th>
+                            <th>дата</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scores-body">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="buttons">
+                <button id="play-again-btn" class="btn">Играть снова</button>
+                <button id="back-menu-btn" class="btn secondary">В меню</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/core.js"></script>
+    <script src="js/drawing.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game-logic.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+</html>
